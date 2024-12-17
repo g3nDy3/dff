@@ -13,9 +13,9 @@ if __name__ == "__main__":
     print("2. Изменить размер истории")
     print("3. Показать команды")
     print("4. Выйти")
+    now_command = ''
     while True:
         choice = input("Выберите действие: ")
-
         if choice == "1":
             command = input("Введите команду: ")
             history.add_command(command)
@@ -36,6 +36,17 @@ if __name__ == "__main__":
                 print(f"{i}: {cmd}")
 
         elif choice == "4":
+            command = history.next_command(now_command)
+            now_command = command
+            print(now_command)
+            
+            
+        elif choice == "5":
+            command = history.prev_command(now_command)
+            now_command = command
+            print(now_command)
+
+        elif choice == "6":
             print("Выход из программы.")
             break
 
