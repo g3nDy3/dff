@@ -57,6 +57,17 @@ class CommandHistory:
             current = current.next
         return commands
     
+    def prev_command(self, command):
+        current = self.tail
+        if command == '':
+            return current.command
+        
+        while current.command != command:
+            current = current.prev
+            
+        current = current.prev
+        return current.command
+    
     def next_command(self, command):
         current = self.head
         if command == '':
@@ -68,13 +79,4 @@ class CommandHistory:
         current = current.next
         return current.command
     
-    def prev_command(self, command):
-        current = self.tail
-        if command == '':
-            return current.command
-        
-        while current.command != command:
-            current = current.prev
-            
-        current = current.prev
-        return current.command
+    
